@@ -1,2 +1,2 @@
 # gpx2kml
-Converts a gpx files to kml
+Converts gpx files to kml
