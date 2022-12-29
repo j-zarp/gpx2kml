@@ -13,18 +13,20 @@ from math import pi,sqrt,exp,atan2
 # Script parameters
 # -------------------------
 verbose = False
-inputFile = 'input.gpx'
-outputFile = 'tour.kml'
-model3DFile = 'old_plane.dae'
-modelScale = 10
+inputFile = 'suisse.gpx'
+outputFile = 'suisse.kml'
+model3DFile = 'A300600.dae'
+modelScale = 1
 viewTilt = 120
-smoothFactor = 4 # (1 is no smoothing)
-altitudeMode = 'absolute'
+smoothFactor = 1 #4 # (1 is no smoothing)
+altitudeMode = 'relativeToGround' #'absolute'
 extrude = 0
 tessellate = 1
 rad2deg = 180.0/pi
 deg2rad = 1/rad2deg
-location = 'Charmey'
+location = None #'Charmey'
+crop_start_idx = 0 #420
+crop_stop_idx = 0 #900
 
 locations = {'Charmey': {'start': [7.2058246, 46.6251042, 1606.192797], 
                          'stop': [7.1698914, 46.6181322, 872.5266369]}}
@@ -117,10 +119,12 @@ kml_coords_str = ""
 for point in points:
     kml_coords_str += f'{point.longitude},{point.latitude},{point.elevation}{os.linesep}'
 
-points = crop_flight(points, 420, 900, locations[location])
+if crop_start_idx > 0 or crop_stop_idx > 0:
+    points = crop_flight(points, crop_start_idx, crop_stop_idx, locations[location])
 points = smooth_points(points, smoothFactor)
-points = correct_altitude(points, locations[location]['start'][2], 
-                                  locations[location]['stop'][2])
+if location is not None:
+    points = correct_altitude(points, locations[location]['start'][2], 
+                                      locations[location]['stop'][2])
 
 #
 # generating kml
@@ -131,8 +135,7 @@ tour = kml.newgxtour(name=gpx.tracks[0].name)
 playlist = tour.newgxplaylist()
 
 model = kml.newmodel(altitudemode=altitudeMode)
-#model.link.href = os.path.join('./models',model3DFile)
-model.link.href = model3DFile
+model.link.href = model3DFile #os.path.join('./models', model3DFile)
 model.name = 'Parapente'
 model.scale.x = modelScale
 model.scale.y = modelScale
