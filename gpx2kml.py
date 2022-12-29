@@ -24,7 +24,7 @@ extrude = 0
 tessellate = 1
 rad2deg = 180.0/pi
 deg2rad = 1/rad2deg
-location = 'Passy' #None #'Charmey'
+location = 'Marcel' #None #'Passy' #'Charmey'
 crop_start_idx = 0 #420
 crop_stop_idx = 0 #900
 
@@ -32,8 +32,8 @@ locations = {'Charmey': {'start': [7.2058246, 46.6251042, 1606.192797],
                          'stop': [7.1698914, 46.6181322, 872.5266369]},
             'Passy': {'start': [6.739783, 45.949526, 1333],
                       'stop': [6.724793, 45.928321, 609]},
-            'Marcel': {'start': [],
-                      'stop': []}}
+            'Marcel': {'start': [7.023821, 46.297067, 1157],
+                      'stop': [6.993956, 46.277369, 420]}}
 
 # 
 # Functions definitions
