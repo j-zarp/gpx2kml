@@ -18,18 +18,22 @@ outputFile = 'output.kml'
 model3DFile = 'A300600.dae'
 modelScale = 1
 viewTilt = 120
-smoothFactor = 1 #4 # (1 is no smoothing)
-altitudeMode = 'relativeToGround' #'absolute'
+smoothFactor = 4 # (1 is no smoothing)
+altitudeMode = 'absolute' #'relativeToGround' #'absolute'
 extrude = 0
 tessellate = 1
 rad2deg = 180.0/pi
 deg2rad = 1/rad2deg
-location = None #'Charmey'
+location = 'Passy' #None #'Charmey'
 crop_start_idx = 0 #420
 crop_stop_idx = 0 #900
 
 locations = {'Charmey': {'start': [7.2058246, 46.6251042, 1606.192797], 
-                         'stop': [7.1698914, 46.6181322, 872.5266369]}}
+                         'stop': [7.1698914, 46.6181322, 872.5266369]},
+            'Passy': {'start': [6.739783, 45.949526, 1333],
+                      'stop': [6.724793, 45.928321, 609]},
+            'Marcel': {'start': [],
+                      'stop': []}}
 
 # 
 # Functions definitions
