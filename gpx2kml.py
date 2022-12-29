@@ -13,8 +13,8 @@ from math import pi,sqrt,exp,atan2
 # Script parameters
 # -------------------------
 verbose = False
-inputFile = 'suisse.gpx'
-outputFile = 'suisse.kml'
+inputFile = 'input.gpx'
+outputFile = 'output.kml'
 model3DFile = 'A300600.dae'
 modelScale = 1
 viewTilt = 120
